@@ -53,6 +53,12 @@ while selection not in function_options:
     print("Invalid selection. Please try again.")
     selection = input("Enter your choice (1-6): ")
 
+# Train the model
+epochs = input("Enter the number of epochs to train for: ")
+epochs = int(epochs)
+display_freq = input("Enter the display frequency (plot update frequency): ")
+display_freq = int(display_freq)
+
 selected_function = function_options[selection]
 print(f"\nFitting neural network to {selected_function['name']}...")
 
@@ -87,10 +93,6 @@ plt.ion()  # Turn on interactive mode
 
 # Track loss history for plotting
 loss_history = []
-
-# Train the model
-epochs = 5000
-display_freq = 10  # How often to update the plot
 
 for epoch in range(epochs):
     optimizer.zero_grad()
