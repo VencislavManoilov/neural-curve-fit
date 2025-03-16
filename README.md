@@ -1,10 +1,10 @@
 # Neural Network Curve Fitting
 
-A simple implementation of neural networks to fit a sine wave using PyTorch.
+A flexible implementation of neural networks to fit various mathematical functions using PyTorch.
 
 ## Description
 
-This project demonstrates how a basic neural network can be trained to approximate a sine wave function. It visualizes the training process in real-time and shows the final result as a comparison between the true sine wave and the neural network's approximation.
+This project demonstrates how a basic neural network can be trained to approximate different mathematical functions. It allows users to select from multiple function types, customize training parameters, and visualizes both the training process in real-time and the final result with a loss history graph.
 
 ## Requirements
 
@@ -51,20 +51,26 @@ python main.py
 
 This will:
 1. Check if CUDA is available and use it if possible
-2. Generate a sine wave dataset
-3. Create and train a neural network to approximate the sine function
-4. Display real-time training progress visualization
-5. Show a final comparison plot when training is complete
+2. Present a menu of mathematical functions to approximate:
+   - Sine Wave
+   - Gaussian Curve
+   - Absolute Value
+   - Polynomial (0.5x³ - 4x² + 2x + 5)
+   - Step Function
+   - Sigmoid
+3. Ask for training parameters (number of epochs and display frequency)
+4. Create and train a neural network to approximate the selected function
+5. Display real-time training progress visualization
+6. Show a final comparison plot with the loss history when training is complete
 
-## Customization
+## Customizing the Code
 
-You can modify the following parameters in `main.py` to experiment:
+You can modify the following in `main.py`:
 
-- Network architecture: Change the layer sizes or add more layers in the `Net` class
-- Training duration: Adjust the `epochs` variable (default: 5000)
-- Visualization frequency: Change `display_freq` to update the plot more or less frequently
-- Learning rate: Modify the `lr` parameter in the optimizer (default: 0.01)
-- Data range: Change the range in `torch.linspace(-2 * np.pi, 2 * np.pi, 1000)` to fit different ranges of the sine function
+- **Add new functions**: Extend the `function_options` dictionary with additional mathematical functions
+- **Network architecture**: Adjust the `hidden_size` parameter or modify the `Net` class structure
+- **Learning rate**: Change the `lr` parameter in the optimizer (default: 0.01)
+- **Data range**: Modify the range in `torch.linspace(-5, 5, 1000)` to change the domain for function approximation
 
 ## Requirements for GPU Acceleration
 
